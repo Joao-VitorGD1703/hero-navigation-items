@@ -18,7 +18,7 @@ const Index = () => {
           <div className="relative z-10 w-full max-w-7xl mx-auto px-6 py-20">
             <div className="max-w-3xl">
               <div className="mb-6 inline-block">
-                <span className="px-6 py-3 bg-white/20 backdrop-blur-md text-white font-semibold rounded-full border border-white/30">
+                <span className="px-4 py-2 md:px-6 md:py-3 bg-white/20 backdrop-blur-md text-white text-sm md:text-base font-semibold rounded-full border border-white/30">
                   🌊 Líder em Logística Internacional
                 </span>
               </div>
