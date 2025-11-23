@@ -1,7 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
 import { Ship, Truck, Building, Package, Globe, HeadphonesIcon, ChevronDown } from "lucide-react";
 
 const Index = () => {
@@ -30,12 +29,12 @@ const Index = () => {
                 A Open Sea Logística oferece soluções completas em transporte marítimo, armazenagem e distribuição com excelência e eficiência comprovadas no mercado internacional.
               </p>
               <div className="flex flex-wrap gap-4">
-                <Button asChild size="lg" className="text-lg">
-                  <Link to="/orcamento">Solicitar Orçamento</Link>
-                </Button>
-                <Button asChild size="lg" variant="outline" className="text-lg border-2 border-white text-white hover:bg-white hover:text-primary">
-                  <Link to="/servicos">Nossos Serviços</Link>
-                </Button>
+                <button className="px-8 py-4 bg-white text-primary hover:bg-gray-100 font-bold rounded-lg transition-all duration-300 shadow-2xl hover:shadow-white/20 hover:scale-105 whitespace-nowrap cursor-pointer">
+                  Solicitar Orçamento
+                </button>
+                <button className="px-8 py-4 bg-primary hover:bg-primary-hover text-white font-semibold rounded-lg transition-all duration-300 border-2 border-white/50 whitespace-nowrap cursor-pointer shadow-xl">
+                  Nossos Serviços
+                </button>
               </div>
             </div>
           </div>
@@ -48,17 +47,19 @@ const Index = () => {
         </section>
 
         {/* Services Preview */}
-        <section className="py-24 bg-gradient-to-b from-background to-muted">
+        <section id="servicos" className="py-20 bg-gradient-to-b from-white to-gray-50">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-16">
-              <span className="px-6 py-2 bg-primary/10 text-primary font-semibold rounded-full text-sm inline-block mb-4">
-                NOSSOS SERVIÇOS
-              </span>
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+              <div className="inline-block mb-4">
+                <span className="px-6 py-2 bg-primary/10 text-primary font-semibold rounded-full text-sm">
+                  NOSSOS SERVIÇOS
+                </span>
+              </div>
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
                 Soluções Completas em Logística
               </h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Oferecemos soluções logísticas completas e personalizadas
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Oferecemos soluções logísticas completas e personalizadas para atender todas as necessidades do seu negócio
               </p>
             </div>
 
@@ -81,33 +82,75 @@ const Index = () => {
               ))}
             </div>
 
-            <div className="text-center mt-12">
-              <Button asChild size="lg" variant="outline">
-                <Link to="/servicos">Ver Todos os Serviços</Link>
-              </Button>
+          </div>
+        </section>
+
+        {/* Why Choose Section */}
+        <section id="porque" className="py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="text-center mb-16">
+              <div className="inline-block mb-4">
+                <span className="px-6 py-2 bg-primary/10 text-primary font-semibold rounded-full text-sm">
+                  NOSSOS DIFERENCIAIS
+                </span>
+              </div>
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                Por Que Escolher a Open Sea?
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Somos referência em logística com diferenciais que fazem toda a diferença para o sucesso do seu negócio
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[
+                { icon: "ri-time-line", title: "Pontualidade Garantida", desc: "Cumprimos 99% dos prazos estabelecidos com nossos clientes através de planejamento rigoroso." },
+                { icon: "ri-shield-check-line", title: "Segurança Total", desc: "Sistemas avançados de rastreamento e seguro completo para proteger sua carga." },
+                { icon: "ri-global-line", title: "Alcance Global", desc: "Rede de parceiros em mais de 50 países garantindo entregas em qualquer lugar do mundo." },
+                { icon: "ri-line-chart-line", title: "Tecnologia Avançada", desc: "Plataforma digital integrada para rastreamento em tempo real." },
+                { icon: "ri-customer-service-line", title: "Suporte 24/7", desc: "Equipe especializada disponível 24 horas por dia, 7 dias por semana." },
+                { icon: "ri-leaf-line", title: "Sustentabilidade", desc: "Compromisso com práticas sustentáveis e redução de emissões." },
+              ].map((item, index) => (
+                <div key={index} className="group relative bg-gradient-to-br from-gray-50 to-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 cursor-pointer border border-gray-100">
+                  <div className="p-6">
+                    <div className="w-16 h-16 bg-primary rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                      <i className={`${item.icon} text-3xl text-white`}></i>
+                    </div>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors duration-300">{item.title}</h3>
+                    <p className="text-gray-600 leading-relaxed">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
 
         {/* Stats Section */}
-        <section className="relative py-24 overflow-hidden bg-gradient-to-r from-primary via-black to-primary-hover">
+        <section className="relative py-24 overflow-hidden bg-gradient-to-r from-primary via-black to-primary-hover" style={{backgroundImage: 'url("https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55")', backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed'}}>
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-black/85 to-primary/95"></div>
           <div className="relative z-10 max-w-7xl mx-auto px-6">
             <div className="text-center mb-16">
-              <span className="px-6 py-2 bg-white/20 backdrop-blur-sm text-white font-semibold rounded-full text-sm border border-white/30 inline-block mb-4">
-                NÚMEROS QUE IMPRESSIONAM
-              </span>
+              <div className="inline-block mb-4">
+                <span className="px-6 py-2 bg-white/20 backdrop-blur-sm text-white font-semibold rounded-full text-sm border border-white/30">
+                  NÚMEROS QUE IMPRESSIONAM
+                </span>
+              </div>
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Resultados Comprovados</h2>
+              <p className="text-xl text-gray-200 max-w-3xl mx-auto">Nossa trajetória de sucesso refletida em números que demonstram excelência e confiança</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {[
-                { number: "15+", label: "Anos de Experiência" },
-                { number: "50+", label: "Países Atendidos" },
-                { number: "10k+", label: "Entregas Mensais" },
-                { number: "99%", label: "Satisfação dos Clientes" },
+                { icon: "ri-calendar-line", number: "15+", label: "Anos de Experiência" },
+                { icon: "ri-earth-line", number: "50+", label: "Países Atendidos" },
+                { icon: "ri-box-3-line", number: "10k+", label: "Entregas Mensais" },
+                { icon: "ri-star-line", number: "99%", label: "Satisfação dos Clientes" },
               ].map((stat, index) => (
-                <div key={index} className="bg-white/10 backdrop-blur-md rounded-2xl p-8 text-center hover:bg-white/20 transition-all duration-300 border border-white/20 hover:scale-105 cursor-pointer">
-                  <div className="text-5xl md:text-6xl font-bold text-white mb-3">{stat.number}</div>
+                <div key={index} className="group relative bg-white/10 backdrop-blur-md rounded-2xl p-8 text-center hover:bg-white/20 transition-all duration-300 border border-white/20 hover:border-white/40 hover:scale-105 cursor-pointer">
+                  <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-xl">
+                    <i className={`${stat.icon} text-3xl text-primary`}></i>
+                  </div>
+                  <div className="text-5xl md:text-6xl font-bold text-white mb-3 group-hover:scale-110 transition-transform duration-300">{stat.number}</div>
                   <div className="text-lg text-gray-200 font-semibold">{stat.label}</div>
                 </div>
               ))}
@@ -115,26 +158,99 @@ const Index = () => {
           </div>
         </section>
 
+        {/* Process Section */}
+        <section id="sobre" className="py-20 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+          <div className="absolute inset-0 opacity-5">
+            <div className="absolute top-20 left-10 w-72 h-72 bg-primary rounded-full blur-3xl"></div>
+            <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary rounded-full blur-3xl"></div>
+          </div>
+          <div className="max-w-7xl mx-auto px-6 relative z-10">
+            <div className="text-center mb-16">
+              <div className="inline-block mb-4">
+                <span className="px-6 py-2 bg-primary/10 text-primary font-semibold rounded-full text-sm">
+                  NOSSO PROCESSO
+                </span>
+              </div>
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                Como Trabalhamos
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Um processo estruturado e eficiente que garante resultados excepcionais em cada etapa
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {[
+                { icon: "ri-search-line", number: "01", title: "Análise e Planejamento", desc: "Avaliamos suas necessidades e desenvolvemos a melhor estratégia logística personalizada." },
+                { icon: "ri-truck-line", number: "02", title: "Execução Eficiente", desc: "Nossa equipe especializada coloca o plano em ação com precisão e agilidade." },
+                { icon: "ri-radar-line", number: "03", title: "Monitoramento Contínuo", desc: "Acompanhamento em tempo real de toda operação com tecnologia de ponta." },
+                { icon: "ri-checkbox-circle-line", number: "04", title: "Entrega e Suporte", desc: "Garantimos a entrega no prazo com suporte completo e documentação organizada." },
+              ].map((step, index) => (
+                <div key={index} className="relative group">
+                  <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden h-full flex flex-col">
+                    <div className="relative h-48 bg-gradient-to-br from-primary to-primary-hover">
+                      <div className="absolute bottom-4 left-4">
+                        <div className="text-6xl font-bold text-white/30 leading-none mb-2">{step.number}</div>
+                      </div>
+                      <div className="absolute top-4 right-4 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg">
+                        <i className={`${step.icon} text-2xl text-primary`}></i>
+                      </div>
+                    </div>
+                    <div className="p-6 flex-grow">
+                      <h3 className="text-xl font-bold text-gray-900 mb-3">{step.title}</h3>
+                      <p className="text-gray-600 leading-relaxed text-sm">{step.desc}</p>
+                    </div>
+                  </div>
+                  {index < 3 && (
+                    <div className="hidden lg:block absolute top-24 -right-4 z-20">
+                      <i className="ri-arrow-right-line text-3xl text-primary"></i>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* CTA Section */}
-        <section className="relative py-32 overflow-hidden bg-gradient-to-br from-muted to-background">
+        <section className="relative py-32 overflow-hidden bg-gradient-to-br from-muted to-background" style={{backgroundImage: 'url("https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d")', backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed'}}>
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-black/85 to-primary/90"></div>
           <div className="relative z-10 max-w-7xl mx-auto px-6">
-            <div className="max-w-4xl mx-auto text-center">
-              <span className="px-6 py-3 bg-primary/10 text-primary font-semibold rounded-full text-sm inline-block mb-6">
-                🚀 PRONTO PARA COMEÇAR?
-              </span>
-              <h2 className="text-4xl md:text-6xl font-bold mb-6 leading-tight text-foreground">
+            <div className="max-w-4xl mx-auto text-center text-white">
+              <div className="inline-block mb-6">
+                <span className="px-6 py-3 bg-white/20 backdrop-blur-md text-white font-semibold rounded-full text-sm border border-white/30">
+                  🚀 PRONTO PARA COMEÇAR?
+                </span>
+              </div>
+              <h2 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
                 Transforme Sua Logística Hoje
               </h2>
-              <p className="text-xl text-muted-foreground mb-12 leading-relaxed">
-                Solicite um orçamento personalizado e descubra como podemos otimizar suas operações
+              <p className="text-xl md:text-2xl text-gray-200 mb-12 leading-relaxed">
+                Solicite um orçamento personalizado e descubra como a Open Sea Logística pode otimizar suas operações e impulsionar seus resultados
               </p>
               <div className="flex flex-wrap justify-center gap-6">
-                <Button asChild size="lg" className="text-lg">
-                  <Link to="/orcamento">Solicitar Orçamento Gratuito</Link>
-                </Button>
-                <Button asChild size="lg" variant="outline" className="text-lg">
-                  <Link to="/contato">Falar com Especialista</Link>
-                </Button>
+                <button className="px-10 py-5 bg-white text-primary font-bold rounded-xl hover:bg-gray-100 transition-all duration-300 shadow-2xl hover:shadow-white/20 hover:scale-105 whitespace-nowrap cursor-pointer text-lg">
+                  <i className="ri-mail-line mr-2"></i>
+                  Solicitar Orçamento Gratuito
+                </button>
+                <a href="tel:+551134567890" className="px-10 py-5 bg-transparent border-2 border-white text-white font-bold rounded-xl hover:bg-white hover:text-primary transition-all duration-300 whitespace-nowrap cursor-pointer text-lg shadow-xl inline-flex items-center">
+                  <i className="ri-phone-line mr-2"></i>
+                  (11) 3456-7890
+                </a>
+              </div>
+
+              <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+                {[
+                  { icon: "ri-time-line", title: "Resposta Rápida", desc: "Retornamos em até 2 horas úteis" },
+                  { icon: "ri-shield-check-line", title: "Sem Compromisso", desc: "Orçamento gratuito e sem obrigações" },
+                  { icon: "ri-customer-service-line", title: "Suporte Dedicado", desc: "Equipe especializada à disposição" },
+                ].map((feature, index) => (
+                  <div key={index} className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
+                    <i className={`${feature.icon} text-4xl text-white mb-3`}></i>
+                    <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
+                    <p className="text-gray-200 text-sm">{feature.desc}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
