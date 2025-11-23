@@ -67,7 +67,7 @@ const Header = () => {
               </div>
               <span className="font-semibold">(11) 3456-7890</span>
             </a>
-            <Button size="lg" onClick={() => scrollToSection("#contato")}>
+            <Button size="lg" onClick={() => scrollToSection("#contato")} className="hidden md:flex">
               Solicitar Orçamento
             </Button>
           </div>
@@ -96,9 +96,11 @@ const Header = () => {
                     {item.name}
                   </a>
                 ))}
-                <Button size="lg" className="mt-4" onClick={() => scrollToSection("#contato")}>
-                  Solicitar Orçamento
-                </Button>
+                <div className="pt-4 border-t border-gray-200">
+                  <Button size="lg" className="w-full" onClick={() => scrollToSection("#contato")}>
+                    Solicitar Orçamento
+                  </Button>
+                </div>
               </nav>
             </SheetContent>
           </Sheet>
